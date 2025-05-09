@@ -2,7 +2,8 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <title>影片播放器</title>
+  <link rel="icon" href="Van Gogh.png" type="image/png">
+  <title>梵谷六重奏</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
@@ -14,13 +15,14 @@
     video {
       width: 95%;
       max-width: 800px;
-      margin-bottom: 20px;
+      margin-top: 20px;
     }
     .buttons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 10px;
+      margin-bottom: 10px;
     }
     .buttons button {
       flex: 1 1 45%;
@@ -48,10 +50,6 @@
 <body>
 
   <h1>選擇影片</h1>
-  <video id="videoPlayer" controls>
-    <source src="2-color-pixel-2x.mp4" type="video/mp4">
-    您的瀏覽器不支援影片播放。
-  </video>
 
   <div class="buttons">
     <button onclick="changeVideo('2-color-pixel-2x.mp4')">2-Color Pixel</button>
@@ -61,6 +59,11 @@
     <button onclick="changeVideo('polygon-10000-16x.mp4')">Polygon 10000</button>
     <button onclick="changeVideo('masterpiece-16145-16x.mp4')">Masterpiece 16145</button>
   </div>
+
+  <video id="videoPlayer" controls>
+    <source src="2-color-pixel-2x.mp4" type="video/mp4">
+    您的瀏覽器不支援影片播放。
+  </video>
 
   <script>
     function changeVideo(filename) {
