@@ -2,35 +2,57 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
-  <link rel="icon" href="Van Gogh.png" type="image/png">
-  <title>梵谷六重奏</title>
+  <title>影片播放器</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: sans-serif;
       text-align: center;
       padding: 20px;
+      margin: 0;
     }
     video {
-      width: 80%;
+      width: 95%;
       max-width: 800px;
       margin-bottom: 20px;
     }
     .buttons {
-      margin: 20px 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
     }
     .buttons button {
-      margin: 5px;
-      padding: 10px 20px;
-      font-size: 16px;
+      flex: 1 1 45%;
+      padding: 15px;
+      font-size: 18px;
+      min-width: 120px;
+      border-radius: 8px;
+      border: none;
+      background-color: #4CAF50;
+      color: white;
       cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .buttons button:hover {
+      background-color: #388e3c;
+    }
+    @media (max-width: 500px) {
+      .buttons button {
+        flex: 1 1 100%;
+        font-size: 20px;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>選擇要播放的作品</h1>
+  <h1>選擇影片</h1>
+  <video id="videoPlayer" controls>
+    <source src="2-color-pixel-2x.mp4" type="video/mp4">
+    您的瀏覽器不支援影片播放。
+  </video>
 
-  <!-- ✅ 按鈕放在這裡 -->
   <div class="buttons">
     <button onclick="changeVideo('2-color-pixel-2x.mp4')">2-Color Pixel</button>
     <button onclick="changeVideo('7-color-pixel-2x.mp4')">7-Color Pixel</button>
@@ -39,12 +61,6 @@
     <button onclick="changeVideo('polygon-10000-16x.mp4')">Polygon 10000</button>
     <button onclick="changeVideo('masterpiece-16145-16x.mp4')">Masterpiece 16145</button>
   </div>
-
-  <!-- ✅ 影片區塊放在下面 -->
-  <video id="videoPlayer" controls>
-    <source src="video1.mp4" type="video/mp4">
-    您的瀏覽器不支援影片播放。
-  </video>
 
   <script>
     function changeVideo(filename) {
